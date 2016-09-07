@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+//http://totalprogus.blogspot.com.br/2013/12/bootstrap-add-active-class-to-li.html
+    $(document).ready(function() {
+        $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+    });
+</script>
+<!--
+<div class="page-header">
+<ol class="breadcrumb">
+  <li><a href="/">My Books</a></li>
+  <li><a href="#">{{ book.title }}</a></li>
+</ol>
+</div>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" ><a href="/">Index</a></li>
+  <li role="presentation" class="active"><a href="#">{{ book.title }}</a></li>
+</ul><br>
+-->
+<h2>Full Record Detail</h2>
+<p>
+{{ record.time|default:"No record" }}
+</p>
+
+<table class="table">
+    {% if record %}
+    <thead>
+        <tr>
+            <th> Parameter</th>
+            <th> Value </th>
+         </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td> Datetime </td><td>{{ record.time|date:"Y-m-d H:i" }}</td>
+        </tr>
+        <tr>
+            <td> Dissolved Oxygen (mg/l) </td><td> {{ record.dissolved_oxygen|floatformat:2 }} </td>
+        </tr>
+        <tr>
+            <td> Salinity (psu) </td><td> {{ record.salinity|floatformat:2 }} </td>
+        </tr>
+        <tr>
+            <td> Level (m) </td><td> {{ record.water_level|floatformat:2 }} </td>
+        </tr>
+    </tbody>
+    {% else %}
+    <tr><td colspan=3 style="white-space: nowrap"><p>No records available.</p></td></tr>
+    {% endif %}
+</table>
+
+
+
+
+
+{% endblock %}

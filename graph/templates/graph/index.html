@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div><h2>Index</h2></div>
+Date now:  {% now 'Y-m-d H:i' %}
+<!--
+<div class="page-header">
+<ol class="breadcrumb">
+  <li><a href="#">My Books</a></li>
+</ol>
+</div>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Index</a></li>
+  <li role="presentation"><a href="#">Detail</a></li>
+</ul><br>
+-->
+
+<!-- Table View -->
+<table class="table">
+    {% if records %}
+    <thead>
+        <tr>
+            <th> Date </th>
+            <th> DO </th>
+            <th> Salinity </th>
+            <th> Water Level </th>
+         </tr>
+    </thead>
+    <tbody>
+        {% for record in records %}
+        <tr>
+            <td> <a href="/{{ record.time|date:'Y-m-d H:i' }}/"> {{ record.time|date:"Y-m-d H:i" }} </td>
+            <td> {{ record.dissolved_oxygen|floatformat:2 }} </td>
+            <td> {{ record.salinity|floatformat:2 }} </td>
+            <td> {{ record.water_level|floatformat:2 }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    {% else %}
+    <tr><td colspan=3 style="white-space: nowrap"><p>No records available.</p></td></tr>
+    {% endif %}
+</table>
+{% endblock %}

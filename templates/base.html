@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock title %}</title>
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<style>
+</style>
+<!-- JavaScript -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="{{ STATIC_URL }}js/jquery/jquery.min.js"></script>
+{% block extrajs %}{% endblock %}
+
+</head>
+<body>
+
+ <!------Navbar ---------->
+<nav class = "navbar navbar-inverse navbar-static-top">
+<div class = "container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">wqSite</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Index<span class="sr-only">(current)</span></a></li>
+      <li><a href="#Detail">Detail</a></li>
+    </ul>
+
+    </ul>
+  </div><!-- /.navbar-collapse -->
+
+</div><!-- End Container -->
+</nav>
+<div class = "container">
+  {% block content %}
+  {% endblock %}
+</div>
+</body>
+</html>
