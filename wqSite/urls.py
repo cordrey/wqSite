@@ -22,7 +22,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', index),
     url(r'^$', chart_data_json),
-    url(r'^([\d]+)/$',detail),
     url(r'(^\d{4}-\d{2}-\d{2} \d{2}:\d{2})/$', record_detail),  #changing space to _ results in validation error
     #url(r'(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})/$', record_detail),
     url(

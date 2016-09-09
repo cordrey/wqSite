@@ -24,7 +24,8 @@ class Tjros(models.Model):
     ts_input = models.DateTimeField()
 
     def __str__(self): # __str__ for Python 3, __unicode__ for Python 2
-        return self.time
+        assert isinstance(self.time, object)
+        return str(self.time)
 
     class Meta:
         managed = False

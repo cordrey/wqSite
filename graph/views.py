@@ -14,10 +14,6 @@ def index(request):
     return render(request, 'graph/index.html', {'records': records})
     #return render(request, 'graph/index.html', {})
 
-def detail(request, time):
-    record = get_object_or_404(Tjros, time=time)
-    return render(request, 'graph/detail.html', {'record': record})
-
 def record_detail(request, time):
     record = get_object_or_404(Tjros, time=time)
     return render(request, 'graph/record_detail.html', {'record': record})
