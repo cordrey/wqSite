@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 #from graph.views import index, detail, current_datetime
-from graph.views import index, detail, chart_data_json, LevelChartsView, record_detail
+from graph.views import index, chart_data_json, LevelChartsView, record_detail
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
