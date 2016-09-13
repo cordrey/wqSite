@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'(^\d{4}-\d{2}-\d{2} \d{2}:\d{2})/$', record_detail),  #changing space to _ results in validation error
     #url(r'(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})/$', record_detail),
     url(
-        regex=r'^chart/$',
+        regex=r'^graph/$',
         view=LevelChartsView.as_view(),
         name='water_level',
     ),

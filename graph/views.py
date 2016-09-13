@@ -29,4 +29,4 @@ def chart_data_json(request):
     return HttpResponse(json.dumps(data), content_type='application/json')
 
 class LevelChartsView(TemplateView):
-    template_name = 'chart/water_level.html'
+    template_name = 'graph/water_level.html'
